@@ -1,0 +1,106 @@
+{
+ "photo": {
+  "file": "KakaoTalk_20261115_192847832_26.jpg",
+  "source": "textbook",
+  "rot": 0,
+  "pages": [
+   151
+  ]
+ },
+ "defaults": {
+  "page": 151,
+  "unit": "IV. 공학의 기초",
+  "section": "중단원 놀이터 · 공학 소양과 진로",
+  "kind": "problem",
+  "note_prefix": "단원 마무리 문제 + 내가 적은 답. 쪽수 표기는 사진에 안 보여 149쪽과 152쪽 사이 오른쪽 면(151)으로 판단함. "
+ },
+ "items": [
+  {
+   "id": "tb-151-01",
+   "text": "[O/X] 나노 공학 엔지니어는 정보 통신 공학과 관련된 직업이다. — 내가 적은 답: X (손글씨: 재료)",
+   "level": "red",
+   "mark": "handwriting",
+   "keywords": [
+    "나노 공학 엔지니어",
+    "재료"
+   ],
+   "confidence": "high",
+   "note": "X에 빨간 동그라미, 옆에 빨간 손글씨 “재료”(→ 재료 공학 관련으로 읽힘)",
+   "region": [
+    0.08,
+    0.6,
+    0.32,
+    0.92
+   ],
+   "answer": "X",
+   "answer_note": "재료",
+   "star": false
+  },
+  {
+   "id": "tb-151-02",
+   "text": "[O/X] 개인이 특정 주제, 활동, 분야에 갖는 관심이나 호기심은 소양이다. — 내가 적은 답: X (손글씨: 흥미)",
+   "level": "red",
+   "mark": "handwriting",
+   "keywords": [
+    "관심이나 호기심",
+    "흥미"
+   ],
+   "confidence": "high",
+   "note": "X에 빨간 동그라미, 옆에 빨간 손글씨 “흥미”",
+   "region": [
+    0.48,
+    0.62,
+    0.7,
+    0.96
+   ],
+   "answer": "X",
+   "answer_note": "흥미",
+   "star": false
+  },
+  {
+   "id": "tb-151-03",
+   "text": "[O/X] 공학 관련 직업에 적합한 흥미 유형은 현실형과 탐구형이다. — 내가 적은 답: O",
+   "level": "red",
+   "mark": "handwriting",
+   "keywords": [
+    "현실형",
+    "탐구형"
+   ],
+   "confidence": "high",
+   "note": "O에 빨간 동그라미",
+   "region": [
+    0.7,
+    0.6,
+    0.9,
+    0.9
+   ],
+   "answer": "O",
+   "answer_note": "",
+   "star": false
+  },
+  {
+   "id": "tb-151-04",
+   "text": "[O/X] 설계한 것보다 재료를 적게 사용하여 이익을 내는 것은 팀워크가 결여된 행동이다. — 내가 적은 답: X (손글씨: 윤리 의식)",
+   "level": "red",
+   "mark": "handwriting",
+   "keywords": [
+    "재료를 적게 사용하여 이익",
+    "윤리 의식"
+   ],
+   "confidence": "high",
+   "note": "X에 빨간 동그라미, 아래에 빨간 손글씨 “윤리의식”",
+   "region": [
+    0.28,
+    0.92,
+    0.48,
+    1.0
+   ],
+   "answer": "X",
+   "answer_note": "윤리 의식",
+   "star": false
+  }
+ ],
+ "unmarked_seen": [
+  "척척 스스로 활동(공학 계열 학과 조사) — 표시 없음"
+ ]
+}

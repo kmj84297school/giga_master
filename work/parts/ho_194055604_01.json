@@ -1,0 +1,368 @@
+{
+ "photo": {
+  "file": "KakaoTalk_20261115_194055604_01.jpg",
+  "source": "handout",
+  "rot": 270,
+  "handout": "아이디어 시각화 하기 1쪽",
+  "pages": []
+ },
+ "defaults": {
+  "unit": "V. 미래를 여는 공학 혁신"
+ },
+ "items": [
+  {
+   "id": "ho-viz-1-01",
+   "handout": "아이디어 시각화 하기 1쪽",
+   "section": "준비물",
+   "ref_page": null,
+   "text": "준비물: 연필, 자, 지우개는 필수",
+   "level": "blue",
+   "mark": "unmarked",
+   "star": false,
+   "keywords": [],
+   "confidence": "high",
+   "note": "수업 준비물 안내(검은 펜 밑줄). 유인물에는 제외 등급이 없어 blue로 둠 — 필요 없으면 삭제",
+   "region": [
+    0.0,
+    0.03,
+    1.0,
+    0.16
+   ]
+  },
+  {
+   "id": "ho-viz-1-02",
+   "handout": "아이디어 시각화 하기 1쪽",
+   "section": "공학적 아이디어 시각화 하기",
+   "ref_page": null,
+   "text": "설계: 주어진 목적을 달성하기 위해 계획을 마친 후 도면으로 표현하는 과정",
+   "level": "blue",
+   "mark": "unmarked",
+   "star": false,
+   "keywords": [
+    "설계",
+    "도면으로 표현하는 과정"
+   ],
+   "confidence": "high",
+   "note": "",
+   "region": [
+    0.0,
+    0.1,
+    1.0,
+    0.27
+   ]
+  },
+  {
+   "id": "ho-viz-1-03",
+   "handout": "아이디어 시각화 하기 1쪽",
+   "section": "공학적 아이디어 시각화 하기",
+   "ref_page": null,
+   "text": "도면: 물체의 모양, 크기, 구조, 제작법 등을 정해진 규칙에 따라 선, 문자, 기호 등을 사용하여 제도용지에 나타낸 것(그림)",
+   "level": "blue",
+   "mark": "unmarked",
+   "star": false,
+   "keywords": [
+    "도면",
+    "선, 문자, 기호",
+    "제도용지에 나타낸 것"
+   ],
+   "confidence": "high",
+   "note": "",
+   "region": [
+    0.0,
+    0.1,
+    1.0,
+    0.27
+   ]
+  },
+  {
+   "id": "ho-viz-1-04",
+   "handout": "아이디어 시각화 하기 1쪽",
+   "section": "공학적 아이디어 시각화 하기",
+   "ref_page": null,
+   "text": "제도: 설계자가 만들고자 하는 제품을 도면으로 작성하는 과정(일)",
+   "level": "blue",
+   "mark": "unmarked",
+   "star": false,
+   "keywords": [
+    "제도",
+    "도면으로 작성하는 과정"
+   ],
+   "confidence": "high",
+   "note": "",
+   "region": [
+    0.0,
+    0.1,
+    1.0,
+    0.27
+   ]
+  },
+  {
+   "id": "ho-viz-1-05",
+   "handout": "아이디어 시각화 하기 1쪽",
+   "section": "도면의 기능",
+   "ref_page": null,
+   "text": "정보 전달의 기능: 말이나 글보다 쉽고 빠르게 전달 가능",
+   "level": "blue",
+   "mark": "unmarked",
+   "star": false,
+   "keywords": [
+    "정보 전달",
+    "쉽고 빠르게 전달"
+   ],
+   "confidence": "high",
+   "note": "",
+   "region": [
+    0.0,
+    0.26,
+    1.0,
+    0.4
+   ]
+  },
+  {
+   "id": "ho-viz-1-06",
+   "handout": "아이디어 시각화 하기 1쪽",
+   "section": "도면의 기능",
+   "ref_page": null,
+   "text": "정보 보존의 기능: 그림으로 저장(기록)되어 보관이 가능",
+   "level": "blue",
+   "mark": "unmarked",
+   "star": false,
+   "keywords": [
+    "정보 보존",
+    "저장(기록)",
+    "보관"
+   ],
+   "confidence": "high",
+   "note": "",
+   "region": [
+    0.0,
+    0.26,
+    1.0,
+    0.4
+   ]
+  },
+  {
+   "id": "ho-viz-1-07",
+   "handout": "아이디어 시각화 하기 1쪽",
+   "section": "도면의 기능",
+   "ref_page": null,
+   "text": "정보 창출의 기능: 새로운 아이디어 창출 가능",
+   "level": "blue",
+   "mark": "unmarked",
+   "star": false,
+   "keywords": [
+    "정보 창출",
+    "새로운 아이디어"
+   ],
+   "confidence": "high",
+   "note": "",
+   "region": [
+    0.0,
+    0.26,
+    1.0,
+    0.4
+   ]
+  },
+  {
+   "id": "ho-viz-1-08",
+   "handout": "아이디어 시각화 하기 1쪽",
+   "section": "제도규칙-제도 용지의 크기",
+   "ref_page": null,
+   "text": "제도 용지의 크기(호칭 — 치수 — 일상어 표현): A0 — 1189 × 841 mm — 전지, A1 — 841 × 594 mm — 2절지, A2 — 594 × 420 mm — 4절지, A3 — 420 × 297 mm — 8절지, A4 — 297 × 210 mm — 16절지",
+   "level": "red",
+   "mark": "rule",
+   "star": true,
+   "keywords": [
+    "1189 × 841",
+    "841 × 594",
+    "594 × 420",
+    "420 × 297",
+    "297 × 210",
+    "전지",
+    "2절지",
+    "4절지",
+    "8절지",
+    "16절지"
+   ],
+   "confidence": "high",
+   "note": "표. 절 제목 위에 검은 펜으로 “☆ 제도규칙”이라고 적혀 있음",
+   "region": [
+    0.03,
+    0.42,
+    0.48,
+    0.72
+   ],
+   "figure": true
+  },
+  {
+   "id": "ho-viz-1-09",
+   "handout": "아이디어 시각화 하기 1쪽",
+   "section": "제도규칙-제도 용지의 크기",
+   "ref_page": null,
+   "text": "(손글씨) 표의 각 줄 옆에 2의 거듭제곱이 적혀 있음: A0 = 2⁰, A1 = 2¹, A2 = 2², A3 = 2³, A4 = 2⁴",
+   "level": "red",
+   "mark": "handwriting",
+   "star": false,
+   "keywords": [
+    "2⁰",
+    "2¹",
+    "2²",
+    "2³",
+    "2⁴"
+   ],
+   "confidence": "high",
+   "note": "검은 펜 손글씨. 일상어 표현(전지, 2절지, 4절지, 8절지, 16절지)의 숫자와 일치",
+   "region": [
+    0.03,
+    0.42,
+    0.48,
+    0.72
+   ],
+   "title_star": true
+  },
+  {
+   "id": "ho-viz-1-10",
+   "handout": "아이디어 시각화 하기 1쪽",
+   "section": "제도규칙-제도 용지의 크기",
+   "ref_page": null,
+   "text": "제도 용지 분할 그림: A0(1189 × 841)를 반으로 나누면 A1 두 장(가로 594 + 594), A1을 반으로 나누면 A2(세로 420 + 420), 다시 반으로 나누면 A3(가로 297 + 297), 다시 반으로 나누면 A4(세로 210)",
+   "level": "red",
+   "mark": "rule",
+   "star": false,
+   "keywords": [
+    "594",
+    "420",
+    "297",
+    "210"
+   ],
+   "confidence": "high",
+   "note": "그림. 치수 숫자: 1189, 594, 594, 297, 297, 210, 420, 420, 841",
+   "region": [
+    0.48,
+    0.42,
+    0.88,
+    0.7
+   ],
+   "figure": true,
+   "title_star": true
+  },
+  {
+   "id": "ho-viz-1-11",
+   "handout": "아이디어 시각화 하기 1쪽",
+   "section": "제도규칙-제도 용지의 크기",
+   "ref_page": null,
+   "text": "제도용지는 가로 : 세로 = √2 : 1이고, 넓이는 A0 = 1m²이다.",
+   "level": "red",
+   "mark": "rule",
+   "star": false,
+   "keywords": [
+    "√2 : 1",
+    "A0",
+    "1m²"
+   ],
+   "confidence": "high",
+   "note": "",
+   "region": [
+    0.03,
+    0.68,
+    0.7,
+    0.78
+   ],
+   "title_star": true
+  },
+  {
+   "id": "ho-viz-1-12",
+   "handout": "아이디어 시각화 하기 1쪽",
+   "section": "제도규칙-제도 용지의 크기",
+   "ref_page": null,
+   "text": "반내림하여 소수점 이하를 버린다.",
+   "level": "red",
+   "mark": "rule",
+   "star": false,
+   "keywords": [
+    "반내림",
+    "소수점 이하를 버린다"
+   ],
+   "confidence": "high",
+   "note": "검은 펜 밑줄 있음",
+   "region": [
+    0.03,
+    0.68,
+    0.7,
+    0.78
+   ],
+   "title_star": true
+  },
+  {
+   "id": "ho-viz-1-13",
+   "handout": "아이디어 시각화 하기 1쪽",
+   "section": "제도규칙-제도 용지의 크기",
+   "ref_page": null,
+   "text": "문제1. A0 제도 용지 1장으로 A5 제도 용지를 만들려고 한다면 최대 몇 장을 만들 수 있을까? — 내가 적은 답: 2⁵ = 32(장)",
+   "level": "red",
+   "mark": "rule",
+   "star": false,
+   "keywords": [
+    "2⁵",
+    "32"
+   ],
+   "confidence": "high",
+   "note": "문제 + 손글씨 답 “2⁵ = 32”",
+   "region": [
+    0.03,
+    0.76,
+    0.95,
+    0.9
+   ],
+   "kind": "problem",
+   "title_star": true
+  },
+  {
+   "id": "ho-viz-1-14",
+   "handout": "아이디어 시각화 하기 1쪽",
+   "section": "제도규칙-척도",
+   "ref_page": null,
+   "text": "척도의 개념: 도면에 나타낸 크기와 실물 크기와의 비율",
+   "level": "red",
+   "mark": "rule",
+   "star": false,
+   "keywords": [
+    "척도",
+    "도면에 나타낸 크기",
+    "실물 크기",
+    "비율"
+   ],
+   "confidence": "high",
+   "note": "",
+   "region": [
+    0.03,
+    0.86,
+    0.95,
+    0.99
+   ]
+  },
+  {
+   "id": "ho-viz-1-15",
+   "handout": "아이디어 시각화 하기 1쪽",
+   "section": "제도규칙-척도",
+   "ref_page": null,
+   "text": "척도 표기 A : B — A는 도면에서의 크기, B는 물체의 실제 크기",
+   "level": "red",
+   "mark": "rule",
+   "star": false,
+   "keywords": [
+    "도면에서의 크기",
+    "물체의 실제 크기"
+   ],
+   "confidence": "high",
+   "note": "그림(A : B 설명)",
+   "region": [
+    0.6,
+    0.8,
+    0.95,
+    0.92
+   ],
+   "figure": true
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+# 원본 사진과 검수용 사진 조각은 용량이 커서 저장소에 올리지 않는다(이 컴퓨터에만 둔다)
+raw/
+review/
+work/backup/
+
+# 이 컴퓨터 전용 설정·임시 파일
+.claude/
+__pycache__/
+*.tmp
+.DS_Store
+Thumbs.db

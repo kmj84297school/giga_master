@@ -1,0 +1,483 @@
+{
+ "photo": {
+  "file": "KakaoTalk_20261115_194055604_02.jpg",
+  "source": "handout",
+  "rot": 270,
+  "handout": "아이디어 시각화 하기 2쪽",
+  "pages": []
+ },
+ "defaults": {
+  "unit": "V. 미래를 여는 공학 혁신"
+ },
+ "items": [
+  {
+   "id": "ho-viz-2-01",
+   "handout": "아이디어 시각화 하기 2쪽",
+   "section": "제도규칙-척도",
+   "ref_page": null,
+   "text": "현척: 도면에 나타낸 크기와 실물 크기가 같을 경우. 예) 1:1",
+   "level": "red",
+   "mark": "rule",
+   "star": false,
+   "keywords": [
+    "현척",
+    "같을 경우",
+    "1:1"
+   ],
+   "confidence": "high",
+   "note": "척도의 종류",
+   "region": [
+    0.0,
+    0.04,
+    1.0,
+    0.22
+   ]
+  },
+  {
+   "id": "ho-viz-2-02",
+   "handout": "아이디어 시각화 하기 2쪽",
+   "section": "제도규칙-척도",
+   "ref_page": null,
+   "text": "축척: 도면에 나타낸 크기가 실물 크기보다 작을 경우. 예) 1:2, 1:5…",
+   "level": "red",
+   "mark": "rule",
+   "star": false,
+   "keywords": [
+    "축척",
+    "작을 경우",
+    "1:2",
+    "1:5"
+   ],
+   "confidence": "high",
+   "note": "척도의 종류",
+   "region": [
+    0.0,
+    0.04,
+    1.0,
+    0.22
+   ]
+  },
+  {
+   "id": "ho-viz-2-03",
+   "handout": "아이디어 시각화 하기 2쪽",
+   "section": "제도규칙-척도",
+   "ref_page": null,
+   "text": "배척: 도면에 나타낸 크기가 실물 크기보다 클 경우. 예) 2:1, 5:1…",
+   "level": "red",
+   "mark": "rule",
+   "star": false,
+   "keywords": [
+    "배척",
+    "클 경우",
+    "2:1",
+    "5:1"
+   ],
+   "confidence": "high",
+   "note": "척도의 종류",
+   "region": [
+    0.0,
+    0.04,
+    1.0,
+    0.22
+   ]
+  },
+  {
+   "id": "ho-viz-2-04",
+   "handout": "아이디어 시각화 하기 2쪽",
+   "section": "제도규칙-척도",
+   "ref_page": null,
+   "text": "주어진 제도 용지의 크기를 고려하여 축소하여 나타내려면 축척을, 확대하여 나타내려면 배척을, 원래의 크기 그대로 나타내려면 현척을 사용한다.",
+   "level": "red",
+   "mark": "rule",
+   "star": false,
+   "keywords": [
+    "축척",
+    "배척",
+    "현척"
+   ],
+   "confidence": "high",
+   "note": "",
+   "region": [
+    0.0,
+    0.18,
+    1.0,
+    0.33
+   ]
+  },
+  {
+   "id": "ho-viz-2-05",
+   "handout": "아이디어 시각화 하기 2쪽",
+   "section": "제도규칙-척도",
+   "ref_page": null,
+   "text": "척도를 적용하여도 도면에는 실제 치수를 나타내어야 한다.",
+   "level": "red",
+   "mark": "rule",
+   "star": false,
+   "keywords": [
+    "실제 치수"
+   ],
+   "confidence": "high",
+   "note": "",
+   "region": [
+    0.0,
+    0.25,
+    1.0,
+    0.34
+   ]
+  },
+  {
+   "id": "ho-viz-2-06",
+   "handout": "아이디어 시각화 하기 2쪽",
+   "section": "제도규칙-척도",
+   "ref_page": null,
+   "text": "척도는 제도용지 오른쪽 아래에 기입한다.",
+   "level": "red",
+   "mark": "rule",
+   "star": false,
+   "keywords": [
+    "오른쪽 아래"
+   ],
+   "confidence": "high",
+   "note": "",
+   "region": [
+    0.0,
+    0.25,
+    1.0,
+    0.34
+   ]
+  },
+  {
+   "id": "ho-viz-2-07",
+   "handout": "아이디어 시각화 하기 2쪽",
+   "section": "제도규칙-척도",
+   "ref_page": null,
+   "text": "문제2. 키가 180cm인 사람을 A4용지에 18cm의 크기로 나타내었다면 사용된 척도와 비율은? — 내가 적은 답: (축척), (1 : 10)",
+   "level": "red",
+   "mark": "rule",
+   "star": false,
+   "keywords": [
+    "축척",
+    "1 : 10"
+   ],
+   "confidence": "high",
+   "note": "문제 + 손글씨 답. ‘축척’ 글자는 흘림체지만 18cm/180cm = 1:10과 맞음",
+   "region": [
+    0.0,
+    0.33,
+    1.0,
+    0.45
+   ],
+   "kind": "problem"
+  },
+  {
+   "id": "ho-viz-2-08",
+   "handout": "아이디어 시각화 하기 2쪽",
+   "section": "제도규칙-제도에 사용하는 문자",
+   "ref_page": null,
+   "text": "문자의 종류: 한글, 영자, 숫자를 기본으로 함",
+   "level": "red",
+   "mark": "rule",
+   "star": false,
+   "keywords": [
+    "한글",
+    "영자",
+    "숫자"
+   ],
+   "confidence": "high",
+   "note": "",
+   "region": [
+    0.0,
+    0.44,
+    1.0,
+    0.64
+   ]
+  },
+  {
+   "id": "ho-viz-2-09",
+   "handout": "아이디어 시각화 하기 2쪽",
+   "section": "제도규칙-제도에 사용하는 문자",
+   "ref_page": null,
+   "text": "문자는 왼쪽부터 오른쪽으로 가로쓰기를 원칙으로 함",
+   "level": "red",
+   "mark": "rule",
+   "star": false,
+   "keywords": [
+    "왼쪽부터 오른쪽",
+    "가로쓰기"
+   ],
+   "confidence": "high",
+   "note": "",
+   "region": [
+    0.0,
+    0.44,
+    1.0,
+    0.64
+   ]
+  },
+  {
+   "id": "ho-viz-2-10",
+   "handout": "아이디어 시각화 하기 2쪽",
+   "section": "제도규칙-제도에 사용하는 문자",
+   "ref_page": null,
+   "text": "문자는 읽기 쉽도록 정확하게 쓰고, 한글은 고딕체를 기본으로 함",
+   "level": "red",
+   "mark": "rule",
+   "star": false,
+   "keywords": [
+    "고딕체"
+   ],
+   "confidence": "high",
+   "note": "",
+   "region": [
+    0.0,
+    0.44,
+    1.0,
+    0.64
+   ]
+  },
+  {
+   "id": "ho-viz-2-11",
+   "handout": "아이디어 시각화 하기 2쪽",
+   "section": "제도규칙-제도에 사용하는 문자",
+   "ref_page": null,
+   "text": "영자와 숫자는 수직 혹은 15° 경사지게 쓸 수 있음.",
+   "level": "red",
+   "mark": "rule",
+   "star": false,
+   "keywords": [
+    "영자와 숫자",
+    "수직",
+    "15°"
+   ],
+   "confidence": "high",
+   "note": "",
+   "region": [
+    0.0,
+    0.44,
+    1.0,
+    0.64
+   ]
+  },
+  {
+   "id": "ho-viz-2-12",
+   "handout": "아이디어 시각화 하기 2쪽",
+   "section": "제도규칙-제도에 사용하는 문자",
+   "ref_page": null,
+   "text": "문자의 크기는 문자의 높이로 정함",
+   "level": "red",
+   "mark": "rule",
+   "star": false,
+   "keywords": [
+    "문자의 높이"
+   ],
+   "confidence": "high",
+   "note": "",
+   "region": [
+    0.0,
+    0.44,
+    1.0,
+    0.64
+   ]
+  },
+  {
+   "id": "ho-viz-2-13",
+   "handout": "아이디어 시각화 하기 2쪽",
+   "section": "제도규칙-치수 기입의 기본 원칙",
+   "ref_page": null,
+   "text": "도면에서 치수는 제품의 요구 사항을 정의하기 위해 사용",
+   "level": "red",
+   "mark": "rule",
+   "star": false,
+   "keywords": [
+    "제품의 요구 사항"
+   ],
+   "confidence": "high",
+   "note": "",
+   "region": [
+    0.0,
+    0.62,
+    1.0,
+    0.8
+   ]
+  },
+  {
+   "id": "ho-viz-2-14",
+   "handout": "아이디어 시각화 하기 2쪽",
+   "section": "제도규칙-치수 기입의 기본 원칙",
+   "ref_page": null,
+   "text": "크기 치수는 도면의 길이, 높이, 두께를 나타냄. 자세 치수는 각도를 나타냄. 위치 치수는 구멍의 가로나 세로의 위치를 나타냄.",
+   "level": "red",
+   "mark": "rule",
+   "star": false,
+   "keywords": [
+    "크기 치수",
+    "길이, 높이, 두께",
+    "자세 치수",
+    "각도",
+    "위치 치수",
+    "구멍"
+   ],
+   "confidence": "high",
+   "note": "",
+   "region": [
+    0.0,
+    0.62,
+    1.0,
+    0.8
+   ]
+  },
+  {
+   "id": "ho-viz-2-15",
+   "handout": "아이디어 시각화 하기 2쪽",
+   "section": "제도규칙-치수 기입의 기본 원칙",
+   "ref_page": null,
+   "text": "길이의 단위는 mm를 사용하되, 단위는 기입하지 않음(생략한다)",
+   "level": "red",
+   "mark": "rule",
+   "star": false,
+   "keywords": [
+    "mm",
+    "기입하지 않음"
+   ],
+   "confidence": "high",
+   "note": "",
+   "region": [
+    0.0,
+    0.72,
+    1.0,
+    0.92
+   ]
+  },
+  {
+   "id": "ho-viz-2-16",
+   "handout": "아이디어 시각화 하기 2쪽",
+   "section": "제도규칙-치수 기입의 기본 원칙",
+   "ref_page": null,
+   "text": "치수 보조 기호는 치수 숫자 앞에 사용하여 치수의 의미를 명확히 함",
+   "level": "red",
+   "mark": "rule",
+   "star": false,
+   "keywords": [
+    "치수 보조 기호",
+    "치수 숫자 앞"
+   ],
+   "confidence": "high",
+   "note": "",
+   "region": [
+    0.0,
+    0.72,
+    1.0,
+    0.92
+   ]
+  },
+  {
+   "id": "ho-viz-2-17",
+   "handout": "아이디어 시각화 하기 2쪽",
+   "section": "제도규칙-치수 기입의 기본 원칙",
+   "ref_page": null,
+   "text": "치수는 가능한 계산해서 구할 필요가 없도록 모두 기입하며, 중복 기입하지 않아야 함",
+   "level": "red",
+   "mark": "rule",
+   "star": false,
+   "keywords": [
+    "계산해서 구할 필요가 없도록",
+    "중복 기입하지 않아야"
+   ],
+   "confidence": "high",
+   "note": "",
+   "region": [
+    0.0,
+    0.72,
+    1.0,
+    0.92
+   ]
+  },
+  {
+   "id": "ho-viz-2-18",
+   "handout": "아이디어 시각화 하기 2쪽",
+   "section": "제도규칙-치수 기입의 기본 원칙",
+   "ref_page": null,
+   "text": "관련되는 치수 되도록 한 곳에 모아서 보기 쉽도록 기입함",
+   "level": "red",
+   "mark": "rule",
+   "star": false,
+   "keywords": [
+    "한 곳에 모아서"
+   ],
+   "confidence": "high",
+   "note": "",
+   "region": [
+    0.0,
+    0.72,
+    1.0,
+    0.92
+   ]
+  },
+  {
+   "id": "ho-viz-2-19",
+   "handout": "아이디어 시각화 하기 2쪽",
+   "section": "제도규칙-치수 기입의 기본 원칙",
+   "ref_page": null,
+   "text": "치수는 치수선을 중단하지 않고 치수선 위쪽에 약간 띄어서 중앙에 기입함",
+   "level": "red",
+   "mark": "rule",
+   "star": false,
+   "keywords": [
+    "치수선을 중단하지 않고",
+    "위쪽",
+    "중앙"
+   ],
+   "confidence": "high",
+   "note": "",
+   "region": [
+    0.0,
+    0.72,
+    1.0,
+    0.92
+   ]
+  },
+  {
+   "id": "ho-viz-2-20",
+   "handout": "아이디어 시각화 하기 2쪽",
+   "section": "제도규칙-치수 기입의 기본 원칙",
+   "ref_page": null,
+   "text": "가로 방향의 치수는 치수선의 위쪽 중앙, 세로 방향의 치수는 도면의 오른쪽에서 읽을 수 있게 기입함",
+   "level": "red",
+   "mark": "rule",
+   "star": false,
+   "keywords": [
+    "가로 방향",
+    "위쪽 중앙",
+    "세로 방향",
+    "오른쪽에서 읽을 수 있게"
+   ],
+   "confidence": "high",
+   "note": "",
+   "region": [
+    0.0,
+    0.72,
+    1.0,
+    0.92
+   ]
+  },
+  {
+   "id": "ho-viz-2-21",
+   "handout": "아이디어 시각화 하기 2쪽",
+   "section": "제도규칙-제도에 사용하는 문자",
+   "ref_page": null,
+   "text": "(손글씨) ‘제도에 사용하는 문자’부터 ‘치수 기입의 기본 원칙’ 끝까지 오른쪽에 긴 괄호가 그어져 있고 옆에 검은 펜 메모가 있음 — 판독 불가(“시험에 …”처럼 보임)",
+   "level": "red",
+   "mark": "handwriting",
+   "star": false,
+   "keywords": [],
+   "confidence": "low",
+   "note": "이 메모가 두 절의 출제 여부에 관한 내용일 수 있음. 읽을 수 없어 규칙대로 두 절을 red로 둠 — 확인 필요",
+   "region": [
+    0.68,
+    0.4,
+    0.98,
+    0.6
+   ]
+  }
+ ]
+}

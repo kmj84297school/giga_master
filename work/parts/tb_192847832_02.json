@@ -1,0 +1,420 @@
+{
+ "photo": {
+  "file": "KakaoTalk_20261115_192847832_02.jpg",
+  "source": "textbook",
+  "rot": 0,
+  "pages": [
+   14,
+   15
+  ]
+ },
+ "defaults": {
+  "unit": "I. 생활 문화와 디지털 환경",
+  "section": "1-2 한국의 의식주 생활 문화 · 한국의 의식주 생활 문화의 역사"
+ },
+ "items": [
+  {
+   "id": "tb-014-01",
+   "page": 14,
+   "text": "(손글씨) 구분 필요 — 그림 I-4 한국 의식주 생활 문화의 변화(삼국 시대 / 고려 시대 / 조선 시대~근대 / 현대)",
+   "level": "red",
+   "mark": "handwriting",
+   "star": true,
+   "keywords": [
+    "삼국 시대",
+    "고려 시대",
+    "조선 시대~근대",
+    "현대"
+   ],
+   "confidence": "high",
+   "note": "절 제목 ‘한국의 의식주 생활 문화의 역사’ 옆에 빨간 ☆. 손글씨 “구분 필요”에서 나온 빨간 선이 시대 칸 사이를 나눔",
+   "region": [
+    0.05,
+    0.31,
+    0.92,
+    0.88
+   ],
+   "figure": true
+  },
+  {
+   "id": "tb-014-02",
+   "page": 14,
+   "text": "삼국 시대 의생활: 길이가 길고 소매통이 좁은 저고리를 입고 허리에 띠를 매었으며, 통이 좁은 바지를 입었다.",
+   "level": "red",
+   "mark": "underline",
+   "star": false,
+   "keywords": [
+    "삼국 시대",
+    "소매통이 좁은 저고리",
+    "허리에 띠",
+    "통이 좁은 바지"
+   ],
+   "confidence": "high",
+   "note": "빨간 밑줄(첫 줄은 글자 위를 지나감)",
+   "region": [
+    0.06,
+    0.49,
+    0.27,
+    0.88
+   ],
+   "title_star": true
+  },
+  {
+   "id": "tb-014-03",
+   "page": 14,
+   "text": "삼국 시대 주생활: 고구려의 온돌이 점차 남쪽으로 전파되었다.",
+   "level": "red",
+   "mark": "underline",
+   "star": false,
+   "keywords": [
+    "삼국 시대",
+    "고구려의 온돌",
+    "남쪽으로 전파"
+   ],
+   "confidence": "high",
+   "note": "빨간 밑줄",
+   "region": [
+    0.06,
+    0.49,
+    0.27,
+    0.88
+   ],
+   "title_star": true
+  },
+  {
+   "id": "tb-014-04",
+   "page": 14,
+   "text": "고려 시대 식생활: 불교의 영향으로 채식이 발달하였다.",
+   "level": "red",
+   "mark": "underline",
+   "star": false,
+   "keywords": [
+    "고려 시대",
+    "불교의 영향",
+    "채식"
+   ],
+   "confidence": "high",
+   "note": "빨간 밑줄",
+   "region": [
+    0.25,
+    0.44,
+    0.45,
+    0.83
+   ],
+   "title_star": true
+  },
+  {
+   "id": "tb-014-05",
+   "page": 14,
+   "text": "고려 시대 식생활: 원나라에서 설탕, 후추, 포도주 등이 들어왔다.",
+   "level": "red",
+   "mark": "underline",
+   "star": false,
+   "keywords": [
+    "고려 시대",
+    "원나라",
+    "설탕, 후추, 포도주"
+   ],
+   "confidence": "high",
+   "note": "빨간 밑줄",
+   "region": [
+    0.25,
+    0.44,
+    0.45,
+    0.83
+   ],
+   "title_star": true
+  },
+  {
+   "id": "tb-014-06",
+   "page": 14,
+   "text": "고려 시대 의생활: 귀족들은 비단이나 모시옷, 평민은 삼베옷을 입었으며, 고려 말에 목화가 들어오며 무명옷을 입었다.",
+   "level": "red",
+   "mark": "underline",
+   "star": false,
+   "keywords": [
+    "고려 시대",
+    "귀족",
+    "비단이나 모시옷",
+    "평민",
+    "삼베옷",
+    "목화",
+    "무명옷"
+   ],
+   "confidence": "high",
+   "note": "빨간 밑줄",
+   "region": [
+    0.25,
+    0.44,
+    0.45,
+    0.83
+   ],
+   "title_star": true
+  },
+  {
+   "id": "tb-014-07",
+   "page": 14,
+   "text": "고려 시대 주생활: 온돌 구조가 널리 보급되었고, 마루도 사용하였다.",
+   "level": "red",
+   "mark": "underline",
+   "star": false,
+   "keywords": [
+    "고려 시대",
+    "온돌 구조가 널리 보급",
+    "마루"
+   ],
+   "confidence": "high",
+   "note": "빨간 밑줄",
+   "region": [
+    0.25,
+    0.44,
+    0.45,
+    0.83
+   ],
+   "title_star": true
+  },
+  {
+   "id": "tb-015-01",
+   "page": 15,
+   "text": "조선 시대~근대 식생활: 주식 재료에서 흰쌀이 차지하는 비율이 높아졌고, …",
+   "level": "red",
+   "mark": "underline",
+   "star": false,
+   "keywords": [
+    "조선 시대~근대",
+    "흰쌀",
+    "비율이 높아졌고"
+   ],
+   "confidence": "high",
+   "note": "빨간 밑줄(‘높아졌고,’까지). 뒤의 ‘고추, 옥수수, 완두, 고구마, 호박, 감자 등을 재배하기 시작하였다’는 밑줄 없음",
+   "region": [
+    0.51,
+    0.37,
+    0.71,
+    0.82
+   ],
+   "title_star": true
+  },
+  {
+   "id": "tb-015-02",
+   "page": 15,
+   "text": "조선 시대~근대 식생활: 임진왜란을 전후하여 유입된 고추는 …",
+   "level": "red",
+   "mark": "underline",
+   "star": false,
+   "keywords": [
+    "조선 시대~근대",
+    "임진왜란",
+    "고추"
+   ],
+   "confidence": "high",
+   "note": "빨간 밑줄(‘유입된 고추는’까지). 뒤의 ‘양념으로 쓰였고, 고추장, 김치, 젓갈 등에 사용되면서 독특한 발효 음식이 발달하였다’는 밑줄 없음",
+   "region": [
+    0.51,
+    0.37,
+    0.71,
+    0.82
+   ],
+   "title_star": true
+  },
+  {
+   "id": "tb-015-03",
+   "page": 15,
+   "text": "조선 시대~근대 식생활: 첩 수별 반상 차림이 정착한 한식의 완성기이다.",
+   "level": "red",
+   "mark": "underline",
+   "star": false,
+   "keywords": [
+    "조선 시대~근대",
+    "첩 수별 반상 차림",
+    "한식의 완성기"
+   ],
+   "confidence": "high",
+   "note": "빨간 밑줄",
+   "region": [
+    0.51,
+    0.37,
+    0.71,
+    0.82
+   ],
+   "title_star": true
+  },
+  {
+   "id": "tb-015-04",
+   "page": 15,
+   "text": "조선 시대~근대 의생활: 신분에 따라 의복의 제한과 엄격한 규제가 있었다.",
+   "level": "red",
+   "mark": "underline",
+   "star": false,
+   "keywords": [
+    "조선 시대~근대",
+    "신분에 따라",
+    "의복의 제한과 엄격한 규제"
+   ],
+   "confidence": "high",
+   "note": "빨간 밑줄",
+   "region": [
+    0.51,
+    0.37,
+    0.71,
+    0.82
+   ],
+   "title_star": true
+  },
+  {
+   "id": "tb-015-05",
+   "page": 15,
+   "text": "조선 시대~근대 의생활: 여자 저고리는 점점 짧아지고 치마는 길고 폭이 넓어졌으며, …",
+   "level": "red",
+   "mark": "underline",
+   "star": false,
+   "keywords": [
+    "조선 시대~근대",
+    "저고리는 점점 짧아지고",
+    "치마는 길고 폭이 넓어졌으며"
+   ],
+   "confidence": "high",
+   "note": "빨간 밑줄(‘넓어졌으며,’까지). 뒤의 ‘속치마를 여러 겹 겹쳐 입어 하체를 풍성하게 보이도록 하였다’는 밑줄 없음",
+   "region": [
+    0.51,
+    0.37,
+    0.71,
+    0.82
+   ],
+   "title_star": true
+  },
+  {
+   "id": "tb-015-06",
+   "page": 15,
+   "text": "조선 시대~근대 주생활: 우리나라 전통 한옥의 기본이 형성된 시기로, 온돌과 마루가 정착되었다.",
+   "level": "red",
+   "mark": "underline",
+   "star": false,
+   "keywords": [
+    "조선 시대~근대",
+    "전통 한옥의 기본",
+    "온돌과 마루가 정착"
+   ],
+   "confidence": "high",
+   "note": "빨간 밑줄은 ‘온돌과 마루가 정착되었다’ 부분",
+   "region": [
+    0.51,
+    0.37,
+    0.71,
+    0.82
+   ],
+   "title_star": true
+  },
+  {
+   "id": "tb-015-07",
+   "page": 15,
+   "text": "현대 식생활: 식생활의 서구화로 곡류 섭취량이 감소하고 육류 등 동물성 식품과 유지류의 섭취량이 증가하였다.",
+   "level": "red",
+   "mark": "underline",
+   "star": false,
+   "keywords": [
+    "현대",
+    "식생활의 서구화",
+    "곡류 섭취량이 감소",
+    "육류 등 동물성 식품"
+   ],
+   "confidence": "low",
+   "note": "빨간 선이 ‘육류 등 동물성’ 글자 위를 지나감. 그 부분 밑줄인지 윗줄(‘식생활의 서구화로’) 밑줄인지 확실하지 않음",
+   "region": [
+    0.7,
+    0.38,
+    0.91,
+    0.56
+   ],
+   "title_star": true
+  },
+  {
+   "id": "tb-015-08",
+   "page": 15,
+   "text": "현대 식생활: 외식이나 가공식품 이용이 증가하였다.",
+   "level": "red",
+   "mark": "underline",
+   "star": false,
+   "keywords": [
+    "현대",
+    "외식",
+    "가공식품"
+   ],
+   "confidence": "high",
+   "note": "빨간 선이 글자 위를 지나감(밑줄로 봄)",
+   "region": [
+    0.7,
+    0.38,
+    0.91,
+    0.56
+   ],
+   "title_star": true
+  },
+  {
+   "id": "tb-015-09",
+   "page": 15,
+   "text": "현대 의생활: 의복의 서구화가 촉진되어 한복이 예복화되었다.",
+   "level": "red",
+   "mark": "underline",
+   "star": false,
+   "keywords": [
+    "현대",
+    "의복의 서구화",
+    "한복이 예복화"
+   ],
+   "confidence": "high",
+   "note": "빨간 밑줄은 ‘의복의 서구화가’ 부분",
+   "region": [
+    0.7,
+    0.52,
+    0.91,
+    0.68
+   ],
+   "title_star": true
+  },
+  {
+   "id": "tb-015-10",
+   "page": 15,
+   "text": "현대 주생활: 주생활이 서구화되어 입식 생활이 보편화되었다.",
+   "level": "red",
+   "mark": "underline",
+   "star": false,
+   "keywords": [
+    "현대",
+    "주생활이 서구화",
+    "입식 생활"
+   ],
+   "confidence": "high",
+   "note": "빨간 밑줄은 ‘주생활이 서구화되어 입식’ 부분",
+   "region": [
+    0.7,
+    0.66,
+    0.91,
+    0.8
+   ],
+   "title_star": true
+  },
+  {
+   "id": "tb-015-11",
+   "page": 15,
+   "text": "현대 주생활: 아파트·연립 주택·다세대 주택 등 공동 주택이 증가하였다.",
+   "level": "red",
+   "mark": "underline",
+   "star": false,
+   "keywords": [
+    "현대",
+    "아파트·연립 주택·다세대 주택",
+    "공동 주택이 증가"
+   ],
+   "confidence": "high",
+   "note": "빨간 밑줄은 ‘주택이 증가’ 부분",
+   "region": [
+    0.7,
+    0.66,
+    0.91,
+    0.8
+   ],
+   "title_star": true
+  }
+ ]
+}

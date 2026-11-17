@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>판독 검수</title>
+<style>
+:root{
+  --bg:#f5f4f1; --surface:#ffffff; --surface-2:#efede8; --line:#e0ddd5; --line-strong:#cbc7bd;
+  --text:#1f1e1b; --muted:#6c685f; --faint:#8f8b82;
+  --accent:#2c6e5a; --accent-ink:#ffffff; --accent-soft:#e3f0eb;
+  --red:#c4302b; --red-soft:#fbe8e6; --blue:#2756b5; --blue-soft:#e7eefb;
+  --ok:#2f7d4f; --ok-soft:#e2f2e8; --edit:#a26a00; --edit-soft:#fcf1d9;
+  --ex:#5f5d58; --ex-soft:#eceae6;
+  --why:#fff7e3; --why-line:#ecd9a6;
+  --shadow:0 1px 2px rgba(30,25,15,.05),0 4px 14px rgba(30,25,15,.05);
+  --radius:14px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#161614; --surface:#1f1f1c; --surface-2:#292925; --line:#34332e; --line-strong:#47453f;
+    --text:#ecebe6; --muted:#a8a59c; --faint:#85827a;
+    --accent:#5fb79a; --accent-ink:#0f1c17; --accent-soft:#1f3a31;
+    --red:#ff7a72; --red-soft:#3a2221; --blue:#86a9ff; --blue-soft:#1f2a44;
+    --ok:#6fcf97; --ok-soft:#1d3527; --edit:#f0b74a; --edit-soft:#3a2f17;
+    --ex:#b9b6ae; --ex-soft:#2c2b28;
+    --why:#2c2716; --why-line:#5a4c22;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 4px 14px rgba(0,0,0,.25);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#161614; --surface:#1f1f1c; --surface-2:#292925; --line:#34332e; --line-strong:#47453f;
+  --text:#ecebe6; --muted:#a8a59c; --faint:#85827a;
+  --accent:#5fb79a; --accent-ink:#0f1c17; --accent-soft:#1f3a31;
+  --red:#ff7a72; --red-soft:#3a2221; --blue:#86a9ff; --blue-soft:#1f2a44;
+  --ok:#6fcf97; --ok-soft:#1d3527; --edit:#f0b74a; --edit-soft:#3a2f17;
+  --ex:#b9b6ae; --ex-soft:#2c2b28;
+  --why:#2c2716; --why-line:#5a4c22;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 4px 14px rgba(0,0,0,.25);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  background:var(--bg); color:var(--text);
+  font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,sans-serif;
+  font-size:16px; line-height:1.6; word-break:keep-all; overflow-wrap:anywhere;
+}
+button,input,textarea,select{font:inherit;color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+
+/* 상단 막대 */
+.top{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;padding-top:12px;padding-bottom:12px}
+.top h1{font-size:19px;margin:0;letter-spacing:-.01em}
+.progress{display:flex;align-items:center;gap:10px;flex:1 1 240px;min-width:200px}
+.bar{flex:1;height:8px;border-radius:99px;background:var(--surface-2);overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--accent);border-radius:99px;transition:width .25s}
+.count{font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}
+.save{font-size:13px;color:var(--muted);white-space:nowrap}
+.save.fail{color:var(--red);font-weight:600}
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;width:100%}
+.seg{display:inline-flex;border:1px solid var(--line-strong);border-radius:10px;overflow:hidden;background:var(--surface)}
+.seg button{border:0;background:transparent;padding:6px 12px;cursor:pointer;font-size:14px;color:var(--muted)}
+.seg button+button{border-left:1px solid var(--line)}
+.seg button[aria-pressed="true"]{background:var(--accent-soft);color:var(--text);font-weight:600}
+.filters select{padding:6px 10px;border-radius:10px;border:1px solid var(--line-strong);background:var(--surface);font-size:14px;max-width:100%}
+
+/* 안내 */
+.intro{margin:20px 0 8px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow)}
+.intro summary{cursor:pointer;font-weight:600}
+.intro ol{margin:10px 0 0;padding-left:20px;color:var(--muted)}
+.intro li{margin:4px 0}
+.intro b{color:var(--text)}
+.done-banner{margin:16px 0 0;padding:14px 18px;border-radius:var(--radius);background:var(--ok-soft);border:1px solid color-mix(in srgb,var(--ok) 35%,transparent);font-weight:600}
+.fatal{margin:40px 0;padding:20px;border-radius:var(--radius);background:var(--red-soft);border:1px solid var(--red)}
+
+h2.group{font-size:16px;margin:28px 0 10px;color:var(--muted);font-weight:600;display:flex;align-items:baseline;gap:8px}
+h2.group small{font-weight:400;font-size:13px;color:var(--faint)}
+
+/* 카드 */
+.card{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);margin:0 0 16px;overflow:hidden;scroll-margin-top:120px}
+.card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:transparent}
+.card[data-status="ok"]::before{background:var(--ok)}
+.card[data-status="edited"]::before{background:var(--edit)}
+.card[data-status="exclude"]::before{background:var(--ex)}
+.card-head{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;padding:12px 18px 10px 20px;border-bottom:1px solid var(--line)}
+.where{font-weight:600}
+.where .pg{color:var(--muted);font-weight:500;margin-left:6px}
+.section{color:var(--muted);font-size:14px;flex:1 1 220px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.chip{font-size:12px;line-height:1;padding:5px 8px;border-radius:99px;background:var(--surface-2);color:var(--muted);white-space:nowrap}
+.chip.id{font-family:ui-monospace,Consolas,monospace;background:transparent;border:1px solid var(--line)}
+.st{font-weight:600}
+.st[data-s="todo"]{background:var(--surface-2);color:var(--muted)}
+.st[data-s="ok"]{background:var(--ok-soft);color:var(--ok)}
+.st[data-s="edited"]{background:var(--edit-soft);color:var(--edit)}
+.st[data-s="exclude"]{background:var(--ex-soft);color:var(--ex)}
+
+.card-body{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:18px;padding:16px 18px 18px 20px}
+@media (max-width:820px){.card-body{grid-template-columns:1fr}}
+
+.shot{margin:0;display:flex;flex-direction:column;gap:8px;min-width:0}
+.frame{background:var(--surface-2);border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;min-height:120px}
+.frame img{display:block;max-width:100%;max-height:520px;object-fit:contain}
+.whole-wrap{position:relative;display:inline-block;line-height:0;border-radius:10px;overflow:hidden;max-width:100%}
+.whole-wrap img{max-width:100%;max-height:640px;display:block}
+.box{position:absolute;outline:3px solid #ffb000;border-radius:3px;box-shadow:0 0 0 9999px rgba(0,0,0,.38)}
+.shot-actions{display:flex;gap:14px;flex-wrap:wrap;font-size:14px}
+.linkbtn{background:none;border:0;padding:0;color:var(--accent);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.shot-actions a{color:var(--accent);text-underline-offset:3px}
+
+.form{display:flex;flex-direction:column;gap:12px;min-width:0}
+.why{margin:0;background:var(--why);border:1px solid var(--why-line);border-radius:10px;padding:10px 12px;font-size:14px}
+.why b{display:block;font-size:12px;letter-spacing:.02em;color:var(--muted);margin-bottom:2px}
+.field{display:flex;flex-direction:column;gap:4px}
+.field>span{font-size:13px;color:var(--muted);font-weight:600}
+.field textarea,.field input[type=text]{width:100%;border:1px solid var(--line-strong);border-radius:10px;background:var(--surface);padding:9px 11px;line-height:1.55}
+.field textarea{resize:vertical;min-height:84px}
+.field textarea:focus,.field input:focus,.seg button:focus-visible,select:focus,.btn:focus-visible,.lv label:focus-within{outline:2px solid var(--accent);outline-offset:1px}
+.kw-warn{margin:0;font-size:13px;color:var(--red)}
+.kw-warn:empty{display:none}
+
+.lv{display:flex;flex-wrap:wrap;gap:8px;border:0;margin:0;padding:0}
+.lv legend{font-size:13px;color:var(--muted);font-weight:600;padding:0;margin-bottom:4px}
+.lv label{position:relative;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:10px;border:1px solid var(--line-strong);cursor:pointer;font-size:14px;background:var(--surface)}
+.lv input{position:absolute;opacity:0;pointer-events:none}
+.lv .dot{width:10px;height:10px;border-radius:50%;background:var(--line-strong)}
+.lv label.red .dot{background:var(--red)}
+.lv label.blue .dot{background:var(--blue)}
+.lv label.ex .dot{background:var(--ex)}
+.lv label.red:has(input:checked){background:var(--red-soft);border-color:var(--red);font-weight:600}
+.lv label.blue:has(input:checked){background:var(--blue-soft);border-color:var(--blue);font-weight:600}
+.lv label.ex:has(input:checked){background:var(--ex-soft);border-color:var(--ex);font-weight:600}
+.starbox{display:inline-flex;align-items:center;gap:8px;font-size:14px;cursor:pointer}
+.starbox input{width:18px;height:18px;accent-color:var(--accent)}
+.starbox.off{opacity:.45;cursor:not-allowed}
+
+.actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:2px}
+.btn{border:1px solid var(--line-strong);background:var(--surface);border-radius:10px;padding:9px 16px;cursor:pointer;font-weight:600;font-size:15px}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn.primary[aria-pressed="true"]{background:var(--ok-soft);color:var(--ok);border-color:var(--ok)}
+.btn.ghost{border-color:transparent;color:var(--muted);font-weight:500}
+.hint{font-size:13px;color:var(--muted)}
+[hidden]{display:none!important}
+
+footer{color:var(--faint);font-size:13px;padding:20px 0 60px}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <h1>판독 검수</h1>
+    <div class="progress" aria-live="polite">
+      <div class="bar" role="progressbar" aria-label="검수 진행률" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i id="barFill"></i></div>
+      <span class="count" id="count">0 / 0</span>
+    </div>
+    <span class="save" id="save">불러오는 중…</span>
+    <div class="filters">
+      <div class="seg" role="group" aria-label="보기">
+        <button type="button" data-filter="todo" aria-pressed="true">남은 것</button>
+        <button type="button" data-filter="done" aria-pressed="false">끝낸 것</button>
+        <button type="button" data-filter="all" aria-pressed="false">전체</button>
+      </div>
+      <select id="unitSel" aria-label="단원 고르기"><option value="">모든 단원</option></select>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <details class="intro" open>
+    <summary>이렇게 확인해 주세요</summary>
+    <ol>
+      <li>왼쪽 사진 조각과 오른쪽 <b>판독한 글</b>을 비교해요. 조각이 좁으면 <b>사진 전체 보기</b>를 눌러요.</li>
+      <li>맞으면 <b>판독 맞음</b>을 눌러요. 틀린 글자는 바로 고치고, 등급이 틀리면 <b>빨강 / 파랑 / 빼기</b>를 바꿔요. 고치면 저절로 끝낸 것으로 쳐요.</li>
+      <li>내용은 바로 저장돼요. 다 끝나면 채팅에 <b>“검수 끝”</b>이라고 알려 주세요. 그때 data/items.json에 반영할게요.</li>
+    </ol>
+  </details>
+  <div id="doneBanner" class="done-banner" hidden>모두 확인했어요. 채팅에 “검수 끝”이라고 알려 주세요.</div>
+  <div id="list"></div>
+  <div id="exList"></div>
+  <footer>저장 위치: work/review_result.json · 사진 조각: review/crops/</footer>
+</main>
+
+<script>
+(() => {
+  const MARK = {underline:"밑줄", circle:"동그라미·괄호", handwriting:"손글씨", rule:"제도규칙", unmarked:"표시 없음"};
+  const LS_KEY = "review-state-v1";
+  let items = [], lows = [], excluded = [], byId = {};
+  let state = {version:1, items:{}, excluded:{}};
+  let filter = "todo", unitFilter = "";
+  const cards = new Map();
+
+  const $ = (s, el=document) => el.querySelector(s);
+  function h(tag, attrs={}, ...kids){
+    const el = document.createElement(tag);
+    for (const [k,v] of Object.entries(attrs)){
+      if (v === null || v === undefined || v === false) continue;
+      if (k === "class") el.className = v;
+      else if (k === "text") el.textContent = v;
+      else if (k.startsWith("on")) el.addEventListener(k.slice(2), v);
+      else el.setAttribute(k, v === true ? "" : v);
+    }
+    for (const kid of kids.flat()){ if (kid !== null && kid !== undefined && kid !== false) el.append(kid); }
+    return el;
+  }
+  async function getJSON(url){
+    const r = await fetch(url, {cache:"no-store"});
+    if (!r.ok) throw new Error(url + " " + r.status);
+    return r.json();
+  }
+  function readLocal(){ try { const v = JSON.parse(localStorage.getItem(LS_KEY)); return v && v.items ? v : null; } catch(e){ return null; } }
+  function writeLocal(){ try { localStorage.setItem(LS_KEY, JSON.stringify(state)); } catch(e){} }
+
+  /* ---------- 상태 계산 ---------- */
+  const sOf = id => state.items[id] || {};
+  function cur(id){
+    const o = byId[id], s = sOf(id);
+    return {
+      text: s.text ?? o.text,
+      level: s.level ?? o.level,
+      star: s.star ?? !!o.star,
+      keywords: s.keywords ?? (o.keywords || []),
+      memo: s.memo ?? "",
+      exclude: !!s.exclude,
+      ok: !!s.ok,
+    };
+  }
+  function isEdited(id){
+    const s = sOf(id);
+    return ["text","level","star","keywords"].some(k => s[k] !== undefined);
+  }
+  function statusOf(id){
+    const s = sOf(id);
+    if (s.exclude) return "exclude";
+    if (isEdited(id)) return "edited";
+    if (s.ok) return "ok";
+    return "todo";
+  }
+  const ST_LABEL = {todo:"남음", ok:"맞음", edited:"고침", exclude:"빼기"};
+  function patch(id, changes){
+    const o = byId[id];
+    const s = Object.assign({}, sOf(id), changes);
+    // 원래 값과 같으면 지운다
+    if (s.text !== undefined && s.text === o.text) delete s.text;
+    if (s.level !== undefined && s.level === o.level) delete s.level;
+    if (s.star !== undefined && s.star === !!o.star) delete s.star;
+    if (s.keywords !== undefined && s.keywords.join("\u0001") === (o.keywords||[]).join("\u0001")) delete s.keywords;
+    if (!s.memo) delete s.memo;
+    if (!s.exclude) delete s.exclude;
+    if (!s.ok) delete s.ok;
+    if (Object.keys(s).length) state.items[id] = s; else delete state.items[id];
+    refreshCard(id);
+    updateProgress();
+    scheduleSave();
+  }
+
+  /* ---------- 카드 ---------- */
+  function placeLabel(o){
+    if (o.source === "textbook") return [o.unit, o.page + "쪽"];
+    return [o.handout || "유인물", o.ref_page ? "교과서 " + o.ref_page + "쪽" : "유인물"];
+  }
+  function wholePhoto(file, region){
+    const wrap = h("div", {class:"whole-wrap"});
+    const img = h("img", {alt:"사진 전체", loading:"lazy"});
+    img.dataset.src = "review/photos/" + file;
+    wrap.append(img);
+    if (region){
+      const [x0,y0,x1,y1] = region;
+      const box = h("div", {class:"box"});
+      box.style.left = (x0*100)+"%"; box.style.top = (y0*100)+"%";
+      box.style.width = ((x1-x0)*100)+"%"; box.style.height = ((y1-y0)*100)+"%";
+      wrap.append(box);
+    }
+    return wrap;
+  }
+  function shotBlock(name, file, region, alt){
+    const frame = h("div", {class:"frame"}, h("img", {src:"review/crops/"+name+".jpg", alt, loading:"lazy"}));
+    const whole = h("div", {hidden:true}, wholePhoto(file, region));
+    const toggle = h("button", {type:"button", class:"linkbtn", text:"사진 전체 보기"});
+    toggle.addEventListener("click", () => {
+      const show = whole.hidden;
+      if (show){ const im = $("img", whole); if (!im.src) im.src = im.dataset.src; }
+      whole.hidden = !show; frame.hidden = show;
+      toggle.textContent = show ? "조각으로 돌아가기" : "사진 전체 보기";
+    });
+    const big = h("a", {href:"review/crops/"+name+".jpg", target:"_blank", rel:"noopener", text:"조각 크게 열기"});
+    return h("figure", {class:"shot"}, frame, whole, h("div", {class:"shot-actions"}, toggle, big));
+  }
+  function autosize(ta){ ta.style.height = "auto"; ta.style.height = (ta.scrollHeight + 2) + "px"; }
+
+  function buildCard(o){
+    const id = o.id, c = cur(id);
+    const [place, pg] = placeLabel(o);
+    const st = h("span", {class:"chip st"});
+    const head = h("div", {class:"card-head"},
+      h("div", {class:"where"}, place, h("span", {class:"pg", text:pg})),
+      h("div", {class:"section", text:o.section || ""}),
+      h("div", {class:"chips"},
+        h("span", {class:"chip", text:o.source === "textbook" ? "교과서" : "유인물"}),
+        h("span", {class:"chip", text:MARK[o.mark] || o.mark}),
+        o.kind === "problem" ? h("span", {class:"chip", text:"문제"}) : null,
+        h("span", {class:"chip id", text:id}),
+        st));
+
+    const ta = h("textarea", {rows:"3", "aria-label":"판독한 글"});
+    ta.value = c.text;
+    ta.addEventListener("input", () => { autosize(ta); patch(id, {text: ta.value}); });
+
+    const kw = h("input", {type:"text", "aria-label":"가릴 말"});
+    kw.value = c.keywords.join(", ");
+    const kwWarn = h("p", {class:"kw-warn"});
+    kw.addEventListener("change", () => {
+      const list = kw.value.split(/[,，]/).map(s => s.trim()).filter(Boolean);
+      patch(id, {keywords: list});
+    });
+
+    const name = "lv-" + id;
+    const lvOpt = (val, cls, label) => {
+      const input = h("input", {type:"radio", name, value:val});
+      input.addEventListener("change", () => {
+        if (val === "exclude") patch(id, {exclude:true, ok:false});
+        else patch(id, {exclude:false, level:val, star: val === "red" ? cur(id).star : false});
+      });
+      return h("label", {class:cls}, input, h("span", {class:"dot"}), label);
+    };
+    const lv = h("fieldset", {class:"lv"}, h("legend", {text:"등급"}),
+      lvOpt("red", "red", "빨강 · 시험에 나옴"),
+      lvOpt("blue", "blue", "파랑 · 알면 좋음"),
+      lvOpt("exclude", "ex", "빼기"));
+
+    const starIn = h("input", {type:"checkbox"});
+    starIn.addEventListener("change", () => patch(id, {star: starIn.checked}));
+    const starBox = h("label", {class:"starbox"}, starIn, "☆ 이 항목에 별표가 붙어 있음");
+
+    const memo = h("input", {type:"text", "aria-label":"메모", placeholder:"예: 이 줄은 밑줄이 없어요"});
+    memo.value = c.memo;
+    memo.addEventListener("change", () => patch(id, {memo: memo.value.trim()}));
+
+    const okBtn = h("button", {type:"button", class:"btn primary"});
+    okBtn.addEventListener("click", () => patch(id, {ok: !sOf(id).ok}));
+    const resetBtn = h("button", {type:"button", class:"btn ghost", text:"되돌리기"});
+    resetBtn.addEventListener("click", () => {
+      delete state.items[id];
+      const o2 = byId[id];
+      ta.value = o2.text; autosize(ta);
+      kw.value = (o2.keywords||[]).join(", "); memo.value = "";
+      refreshCard(id); updateProgress(); scheduleSave();
+    });
+    const hint = h("span", {class:"hint"});
+
+    const form = h("div", {class:"form"},
+      o.note ? h("p", {class:"why"}, h("b", {text:"확실하지 않은 이유"}), o.note) : null,
+      h("label", {class:"field"}, h("span", {text:"판독한 글"}), ta),
+      h("label", {class:"field"}, h("span", {text:"가릴 말 (쉼표로 구분, 공부 앱의 가리고 외우기용)"}), kw),
+      kwWarn,
+      lv, starBox,
+      h("label", {class:"field"}, h("span", {text:"메모 (선택)"}), memo),
+      h("div", {class:"actions"}, okBtn, resetBtn, hint));
+
+    const card = h("article", {class:"card", id:"c-"+id},
+      head, h("div", {class:"card-body"}, shotBlock(id, o.file, o.region, o.text.slice(0, 40)), form));
+    cards.set(id, {card, st, ta, kw, kwWarn, lv, starIn, starBox, okBtn, resetBtn, hint, memo});
+    requestAnimationFrame(() => autosize(ta));
+    return card;
+  }
+
+  function refreshCard(id){
+    const r = cards.get(id); if (!r) return;
+    const c = cur(id), status = statusOf(id), s = sOf(id);
+    r.card.dataset.status = status;
+    r.st.dataset.s = status; r.st.textContent = ST_LABEL[status];
+    const chosen = c.exclude ? "exclude" : c.level;
+    r.lv.querySelectorAll("input").forEach(i => { i.checked = (i.value === chosen); });
+    const starOn = !c.exclude && c.level === "red";
+    r.starIn.disabled = !starOn; r.starIn.checked = starOn && c.star;
+    r.starBox.classList.toggle("off", !starOn);
+    const missing = c.keywords.filter(k => !c.text.includes(k));
+    r.kwWarn.textContent = missing.length ? "글에 없어서 가릴 수 없는 말: " + missing.join(", ") : "";
+    if (status === "edited" || status === "exclude"){
+      r.okBtn.hidden = true;
+      r.hint.textContent = status === "edited" ? "고친 내용으로 저장됐어요." : "이 항목은 빼기로 저장됐어요.";
+    } else {
+      r.okBtn.hidden = false;
+      r.okBtn.setAttribute("aria-pressed", s.ok ? "true" : "false");
+      r.okBtn.textContent = s.ok ? "✓ 맞음으로 표시됨" : "판독 맞음";
+      r.hint.textContent = s.ok ? "다시 누르면 취소돼요." : "";
+    }
+    r.resetBtn.hidden = !Object.keys(s).length;
+  }
+
+  /* ---------- 뺀 곳(지운 흔적) ---------- */
+  function buildExCard(ex, n){
+    const key = ex.file + "#" + ex.text;  // 순서가 바뀌어도 같은 자리를 가리키게
+    const get = () => state.excluded[key] || {};
+    const st = h("span", {class:"chip st"});
+    const ta = h("textarea", {rows:"3", "aria-label":"넣을 글"});
+    ta.value = get().text ?? ex.text;
+    ta.addEventListener("input", () => { autosize(ta); setEx({text: ta.value}); });
+    const name = "ex-" + n;
+    const opt = (val, cls, label) => {
+      const input = h("input", {type:"radio", name, value:val});
+      input.addEventListener("change", () => setEx({choice: val}));
+      return h("label", {class:cls}, input, h("span", {class:"dot"}), label);
+    };
+    const lv = h("fieldset", {class:"lv"}, h("legend", {text:"어떻게 할까요"}),
+      opt("keep", "ex", "빼는 게 맞음"), opt("red", "red", "넣기 · 빨강"), opt("blue", "blue", "넣기 · 파랑"));
+    const textField = h("label", {class:"field"}, h("span", {text:"넣을 글 (넣을 때만)"}), ta);
+    function setEx(ch){
+      const s = Object.assign({}, get());
+      if (ch.choice !== undefined){
+        if (ch.choice === "keep"){ delete s.restore; delete s.level; }
+        else { s.restore = true; s.level = ch.choice; }
+      }
+      if (ch.text !== undefined){ if (ch.text === ex.text) delete s.text; else s.text = ch.text; }
+      if (Object.keys(s).length) state.excluded[key] = s; else delete state.excluded[key];
+      paint(); scheduleSave();
+    }
+    function paint(){
+      const s = get();
+      const v = s.restore ? s.level : "keep";
+      lv.querySelectorAll("input").forEach(i => { i.checked = (i.value === v); });
+      textField.hidden = !s.restore;
+      st.dataset.s = s.restore ? "edited" : "exclude";
+      st.textContent = s.restore ? "넣기" : "뺌";
+      card.dataset.status = s.restore ? "edited" : "exclude";
+      if (s.restore) requestAnimationFrame(() => autosize(ta));
+    }
+    const head = h("div", {class:"card-head"},
+      h("div", {class:"where"}, ex.source === "textbook" ? "교과서" : "유인물", h("span", {class:"pg", text: ex.page ? ex.page + "쪽" : ""})),
+      h("div", {class:"chips"}, h("span", {class:"chip id", text:"ex-" + n}), st));
+    const form = h("div", {class:"form"},
+      h("p", {class:"why"}, h("b", {text:"뺀 이유"}), ex.why),
+      h("div", {class:"field"}, h("span", {text:"그 자리의 글"}), h("div", {text: ex.text})),
+      lv, textField);
+    const card = h("article", {class:"card", id:"ex-" + n}, head,
+      h("div", {class:"card-body"}, shotBlock("ex-" + n, ex.file, ex.region, ex.text.slice(0, 40)), form));
+    paint();
+    return card;
+  }
+
+  /* ---------- 목록·필터·진행률 ---------- */
+  function renderAll(){
+    const list = $("#list"); list.textContent = "";
+    let lastUnit = null, groupEl = null;
+    const unitCount = {};
+    lows.forEach(o => { const u = o.unit; unitCount[u] = (unitCount[u]||0) + 1; });
+    lows.forEach(o => {
+      if (o.unit !== lastUnit){
+        lastUnit = o.unit;
+        groupEl = h("section", {"data-unit":o.unit},
+          h("h2", {class:"group"}, o.unit, h("small", {text: unitCount[o.unit] + "개"})));
+        list.append(groupEl);
+      }
+      groupEl.append(buildCard(o));
+      refreshCard(o.id);
+    });
+    const exList = $("#exList"); exList.textContent = "";
+    if (excluded.length){
+      exList.append(h("h2", {class:"group"}, "지운 흔적으로 보고 뺀 곳", h("small", {text: excluded.length + "곳 · 그대로 두면 계속 빠져요"})));
+      excluded.forEach((ex, n) => exList.append(buildExCard(ex, n)));
+    }
+  }
+  function buildUnitSelect(){
+    const sel = $("#unitSel");
+    [...new Set(lows.map(o => o.unit))].forEach(u => sel.append(h("option", {value:u, text:u})));
+    sel.addEventListener("change", () => { unitFilter = sel.value; applyFilter(); });
+  }
+  function applyFilter(){
+    document.querySelectorAll(".seg button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.filter === filter)));
+    for (const [id, r] of cards){
+      const o = byId[id], s = statusOf(id);
+      const okF = filter === "all" || (filter === "todo" ? s === "todo" : s !== "todo");
+      const okU = !unitFilter || o.unit === unitFilter;
+      r.card.hidden = !(okF && okU);
+    }
+    document.querySelectorAll("#list section").forEach(sec => {
+      sec.hidden = ![...sec.querySelectorAll(".card")].some(c => !c.hidden);
+    });
+    $("#exList").hidden = !!unitFilter;
+  }
+  function updateProgress(){
+    const total = lows.length;
+    const done = lows.filter(o => statusOf(o.id) !== "todo").length;
+    $("#count").textContent = done + " / " + total + " 확인";
+    const pct = total ? Math.round(done / total * 100) : 100;
+    $("#barFill").style.width = pct + "%";
+    $(".bar").setAttribute("aria-valuenow", String(pct));
+    $("#doneBanner").hidden = !(total && done === total);
+  }
+  document.querySelectorAll(".seg button").forEach(b => b.addEventListener("click", () => {
+    filter = b.dataset.filter; applyFilter(); window.scrollTo({top:0});
+  }));
+
+  /* ---------- 저장 ---------- */
+  let timer = null, saving = false, again = false, dirty = false;
+  function setSave(kind){
+    const el = $("#save");
+    el.classList.toggle("fail", kind === "fail");
+    if (kind === "pending") el.textContent = "저장 중…";
+    else if (kind === "ok"){ const t = new Date(); el.textContent = "저장됨 " + String(t.getHours()).padStart(2,"0") + ":" + String(t.getMinutes()).padStart(2,"0"); }
+    else if (kind === "fail") el.textContent = "저장 실패 — 이 브라우저에만 임시 보관됨";
+    else el.textContent = kind;
+  }
+  function payload(){ return JSON.stringify({version:1, saved_at:new Date().toISOString(), items:state.items, excluded:state.excluded}); }
+  function scheduleSave(){
+    writeLocal(); dirty = true; setSave("pending");
+    clearTimeout(timer); timer = setTimeout(save, 500);
+  }
+  async function save(){
+    if (saving){ again = true; return; }
+    saving = true; dirty = false;
+    try {
+      const r = await fetch("api/review-state", {method:"POST", headers:{"Content-Type":"application/json"}, body: payload()});
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok || !j.ok) throw new Error(j.error || r.status);
+      setSave("ok");
+    } catch(e){ dirty = true; setSave("fail"); }
+    finally { saving = false; if (again){ again = false; save(); } }
+  }
+  window.addEventListener("pagehide", () => {
+    if (dirty && navigator.sendBeacon) navigator.sendBeacon("api/review-state", new Blob([payload()], {type:"application/json"}));
+  });
+
+  /* ---------- 시작 ---------- */
+  (async function init(){
+    try { items = await getJSON("data/items.json"); }
+    catch(e){
+      $("#list").append(h("div", {class:"fatal"},
+        h("b", {text:"자료를 불러오지 못했어요."}),
+        h("p", {text:"이 페이지는 검수 서버로 열어야 해요: 프로젝트 폴더에서 python -I tools/review_server.py 를 실행하고 http://127.0.0.1:8765/review.html 을 여세요."})));
+      setSave("");
+      return;
+    }
+    items.forEach(o => byId[o.id] = o);
+    let unitOrder = [];
+    try { unitOrder = (await getJSON("data/units.json")).units.map(u => u.unit); } catch(e){}
+    const rank = u => { const i = unitOrder.indexOf(u); return i < 0 ? 999 : i; };
+    // 단원 순서대로(같은 단원 안에서는 교과서 → 유인물, 원래 순서 유지)
+    lows = items.map((o, i) => [o, i]).filter(([o]) => o.confidence === "low")
+      .sort((a, b) => rank(a[0].unit) - rank(b[0].unit) || a[1] - b[1]).map(([o]) => o);
+    try { excluded = await getJSON("work/excluded.json"); } catch(e){ excluded = []; }
+    let loaded = null;
+    try { loaded = await getJSON("work/review_result.json"); } catch(e){ loaded = readLocal(); }
+    if (loaded && loaded.items){
+      state = {version:1, items:loaded.items || {}, excluded:loaded.excluded || {}};
+      for (const k of Object.keys(state.items)) if (!byId[k]) delete state.items[k];
+    }
+    buildUnitSelect();
+    renderAll();
+    updateProgress();
+    if (!lows.some(o => statusOf(o.id) === "todo")) filter = "all";
+    applyFilter();
+    setSave(loaded ? "저장된 내용을 불러왔어요" : "아직 고친 내용 없음");
+  })();
+})();
+</script>
+</body>
+</html>
