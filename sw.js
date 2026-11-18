@@ -1,6 +1,6 @@
 /* sw.js — 오프라인에서도 앱이 열리게 하는 서비스 워커 (tools/build_site.py가 만든다)
    네트워크 우선: 인터넷이 되면 항상 최신 파일을 받고, 안 되면 마지막에 받아 둔 파일로 연다. */
-var VERSION = 'giga-d3d9b65609';
+var VERSION = 'giga-bb61b990ed';
 var SHELL = ["./", "./index.html", "./web/app.js", "./web/figures.js", "./data/items.json", "./data/questions.json", "./data/units.json", "./manifest.webmanifest", "./icons/icon.svg", "./icons/icon-192.png"];
 
 self.addEventListener('install', function (event) {
